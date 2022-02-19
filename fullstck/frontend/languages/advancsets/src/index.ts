@@ -1,20 +1,11 @@
 
-//this is example for fs @types/node
-import {writeFileSync} from 'fs'
-//import {generate} from 'shortid'
-import {a,M} from './modules/test'
-//generate
-var x = './modules/test';
+// import fetch from 'node-fetch'
+// fetch('./data/data.json')
+// .then((a)=>{return a.json()})
+// .then((b)=>{console.log(b)})
+import { RequestInfo, RequestInit } from "node-fetch";
 
-import(x).then((a:M) => {
-  // `a` is imported and can be used here
-  console.log("h",a.add(10,4))
-});
-
-
-  (async()=>{
-      const datau=await import(x)
-      console.log("l",datau)
-  })()
-  
-console.log(a)
+const fetch = (url: RequestInfo, init?: RequestInit) =>  import("node-fetch").then(({ default: fetch }) => fetch(url, init));
+fetch('./data/data.json')
+.then((a)=>{return a.json()})
+ .then((b)=>{console.log(b)})

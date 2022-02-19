@@ -1,0 +1,21 @@
+{
+  "name": "promiss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index.ts"
+  },
+  "keywords": [],
+  "author": "wa5",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node-fetch": "^2.6.1",
+    "ts-node": "^10.5.0",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "json-server": "^0.17.0",
+    "node-fetch": "^2.6.6"
+  }
+}
