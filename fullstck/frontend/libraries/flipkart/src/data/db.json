@@ -1,0 +1,21 @@
+{
+  "students": {
+    "name": "sai"
+  }
+  ,"beverag": [{
+    "name": "sai",
+    "bname":"cofee",
+    "abv":25
+
+  },{
+    "name": "sai",
+    "bname":"cofee",
+    "abv":25
+
+  },{
+    "name": "sai",
+    "bname":"cofee",
+    "abv":25
+
+  }]
+}
