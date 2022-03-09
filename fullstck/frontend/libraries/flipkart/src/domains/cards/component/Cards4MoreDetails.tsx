@@ -1,17 +1,19 @@
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material"
-import { Link } from "react-router-dom"
 
 
 interface ICards3Props{
 image:string,
 title:string,
-id:number,
+description:string,
+rating: {
+    rate: number,
+    count: number
+    }
 }
 
-const Cards3:React.FC<ICards3Props>=(props)=>{
+const Cards4MoreDetails:React.FC<ICards3Props>=(props)=>{
     return (<>
   <Card sx={{ maxWidth: 345 }}>
-  <Link to={`/singlepage/${props.id}`} style={{textDecoration: 'none'}}>
       <CardMedia
         component="img"
         alt="green iguana"
@@ -31,7 +33,6 @@ const Cards3:React.FC<ICards3Props>=(props)=>{
         <Button size="small">Share</Button>
         <Button size="small">Learn More</Button>
       </CardActions>
-      </Link>
     </Card>
     
     
@@ -39,4 +40,4 @@ const Cards3:React.FC<ICards3Props>=(props)=>{
     </>)
 }
 
-export default Cards3
+export default Cards4MoreDetails

@@ -23,7 +23,7 @@ import {
      <>
 
  <Card sx={{ maxWidth: 200 }}>
- <Link to='/' style={{textDecoration: 'none'}}>
+ <Link to='http://localhost:3000/singlepage' style={{textDecoration: 'none'}}>
           <CardMedia
             component="img"
             height="140"
