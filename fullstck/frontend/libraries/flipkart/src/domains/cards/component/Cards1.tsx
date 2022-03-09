@@ -7,6 +7,7 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
+import Slider from "react-slick";
 import img1 from '../../../static/img/1.jpg'
 import { IProduct } from "../../../store/productlist/interfaces";
 interface ICard1Pros {
@@ -18,8 +19,10 @@ const Card1: React.FC<ICard1Pros> = (props) => {
 
   const renderList = props.products.map((product) => {
     const { id, title, image, price, category } = product;
-    return (<>
-    <Grid item>
+    
+    return (<div>
+    
+   
     <Card sx={{ maxWidth: 300 }}>
         <CardMedia
           component="img"
@@ -41,14 +44,25 @@ const Card1: React.FC<ICard1Pros> = (props) => {
           <Button size="small">Learn More</Button>
         </CardActions>
       </Card>
-      </Grid>
-    </>)
+     
+    </div>)
   })
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToScroll: 4,
+    slidesToShow: 4
+  };
   return (
-    <>
+   <>
+   {renderList}</>
+ 
     
-      {renderList}
-    </>
+    
+     
+   
+    
   );
 };
 

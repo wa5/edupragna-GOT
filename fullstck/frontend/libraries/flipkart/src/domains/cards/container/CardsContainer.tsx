@@ -1,41 +1,47 @@
-
-import { connect } from "react-redux";
-import { Dispatch } from "redux";
+import { Grid } from "@mui/material";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Slider from "react-slick";
 import { fetchProductRequest } from "../../../store/productlist/actionGenerator/actions";
-import { IProduct } from "../../../store/productlist/interfaces";
-import { getProductsSelector } from "../../../store/productlist/selector/productlistSelector";
-import { fetchTodoRequest } from "../../../store/todo/ActionGenerator/actions";
-import Cards1 from "../component/Cards1";
+import {
+  getPendingSelector,
+  getProductsSelector,
+  getErrorSelector,
+} from "../../../store/productlist/selector/productlistSelector";
+import { AppState } from "../../../store/rootReducer";
+import Card2 from "../component/Card2";
+import { settings } from "../style/cardsstyle";
+import { Mydiv } from "./style";
 
+export const CardsContainer = () => {
+  const dispatch = useDispatch();
+  const pending = useSelector(getPendingSelector);
+  const producs = useSelector(getProductsSelector);
+  const error = useSelector(getErrorSelector);
 
-interface Iownprops{
+  const getPending = (state: AppState) => state.todo.pending;
+  useEffect(() => {
+    dispatch(fetchProductRequest());
+  }, [producs]);
 
-}
-interface IStateProps{
-    title:string,
-    products:IProduct[]
-}
+  let po =
+    producs.length === 0 ? (
+      <>loadng....</>
+    ) : (
+      producs.map((product, index) => (
+        <Grid item>
+          <Card2 key={index} data={product} />
+        </Grid>
+      ))
+    );
 
-const mapStateToProps=(state:any):IStateProps=>{
-console.log(state?.todo?.todo[0]?.title)
-console.log( getProductsSelector(state))
-return {
-    title:state?.todo?.todo[0]?.title,
-    products:getProductsSelector(state)
-}
-}
-
-const mapDispatchToProps=(dispatch:Dispatch)=>{
-    dispatch(fetchTodoRequest())
-    dispatch(fetchProductRequest())
-
-}
-// const renderlist=()=>{
-
-//     return (<>
-//    < Cards1 title={""}/>
-//     </>)
-// }
-
-
-export const CardsContainer:React.ComponentType<Iownprops>=connect(mapStateToProps,mapDispatchToProps)(Cards1)
+ 
+  return (
+    <>
+      <Mydiv>
+        <h2>Movies</h2>
+        <Slider {...settings}>{po}</Slider>
+      </Mydiv>
+    </>
+  );
+};
