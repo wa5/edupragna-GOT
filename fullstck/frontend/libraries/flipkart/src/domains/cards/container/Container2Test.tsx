@@ -1,8 +1,9 @@
 import { Grid } from "@mui/material";
-import {  useEffect } from "react";
+import {  Key, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Slider from "react-slick";
 import { fetchProductRequest } from "../../../store/productlist/actionGenerator/actions";
+import { IProduct } from "../../../store/productlist/interfaces";
 import { getPendingSelector, getProductsSelector, getErrorSelector } from "../../../store/productlist/selector/productlistSelector";
 import { AppState } from "../../../store/rootReducer";
 import Card2 from "../component/Card2";
@@ -21,7 +22,7 @@ export const Container2Test= () => {
         dispatch(fetchProductRequest());
     }, []);
    
-      let po= producs.map((product, index) => (
+      let po= producs.map((product: IProduct, index: Key | null | undefined) => (
        <Grid item><Card2 key={index} data={product} /></Grid> 
       ))
     

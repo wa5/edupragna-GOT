@@ -1,8 +1,9 @@
 import { Grid } from "@mui/material";
-import { useEffect } from "react";
+import { Key, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Slider from "react-slick";
 import { fetchProductRequest } from "../../../store/productlist/actionGenerator/actions";
+import { IProduct } from "../../../store/productlist/interfaces";
 import {
   getPendingSelector,
   getProductsSelector,
@@ -28,7 +29,7 @@ export const CardsContainer = () => {
     producs.length === 0 ? (
       <>loadng....</>
     ) : (
-      producs.map((product, index) => (
+      producs.map((product: IProduct, index: Key | null | undefined) => (
         <Grid item>
           <Card2 key={index} data={product} />
         </Grid>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 interface ICards3Props{
 image:string,
 title:string,
-id:number,
+id:number|undefined,
 }
 
 const Cards3:React.FC<ICards3Props>=(props)=>{

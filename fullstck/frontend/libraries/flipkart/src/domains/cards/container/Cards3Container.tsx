@@ -1,5 +1,5 @@
 import { Grid } from "@mui/material"
-import { useEffect } from "react"
+import { Key, useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import Slider from "react-slick"
 import { fetchProductRequest } from "../../../store/productlist/actionGenerator/actions"
@@ -14,12 +14,12 @@ const pending=useSelector(getPendingSelector)
 const producs=useSelector(getProductsSelector)
 const errors=useSelector(getErrorSelector)
 const dispatch=useDispatch()
-console.log(producs[0]?.image)
+ console.log(producs[0]?.image)
     useEffect(()=>{
         dispatch(fetchProductRequest())
     },[])
 
-    var Po=producs.map((pro,indx)=>
+    var Po=producs.map((pro: { image: string; title: string },indx:any )=>
 
     <Grid item key={indx}>
         <Cards3 

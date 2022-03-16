@@ -1,3 +1,4 @@
+import { BaseAction } from "../../../domains/common/interfaces/BaseAction";
 import {
   FETCH_PRODUCT_FAUILER,
   FETCH_PRODUCT_REQUEST,
@@ -11,7 +12,7 @@ const initalState: IProductState = {
   error: null,
 };
 
-export default (state = initalState, action:IProductAllAction) => {
+export const productReducer= (state = initalState, action:BaseAction<any>) => {
   switch (action.type) {
     case FETCH_PRODUCT_REQUEST:
       return {

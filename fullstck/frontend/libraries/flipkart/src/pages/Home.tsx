@@ -8,11 +8,21 @@ import img2 from '../static/img/3.jpg'
 import img3 from '../static/img/4.jpg'
 import Slider from "react-slick";
 import Cards3Container from "../domains/cards/container/Cards3Container";
+import BaicDiv from "../app/topcs/styled-components/BaicDiv";
+import Narm from "../app/topcs/normalizer/Narm";
 export default function Home(){
     
     return (<>
     
     <Container maxWidth="lg">
+<Narm/>
+    <BaicDiv/>
+
+
+
+
+
+
     {/* <NavBarContainer/>
     <
         

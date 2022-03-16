@@ -1,12 +1,13 @@
 import { createSelector } from "reselect";
 import { AppState } from "../../rootReducer";
+import { IProductsGlobalState } from "../interfaces/IrootProducts";
 
-const getPending = (state: AppState) => state.product.pending;
+const getPending = (state: IProductsGlobalState) => state.domain.ProductState.pending;
 
-const getProducts = (state: AppState) => state.product.product;
+const getProducts = (state:IProductsGlobalState) => state.domain.ProductState.product;
 
-const getError = (state: AppState) => state.product.error;
-const getSingleProductId = (state: AppState,id:number) => state.product.product[id];
+const getError = (state: IProductsGlobalState) => state.domain.ProductState.error;
+const getSingleProductId = (state: IProductsGlobalState,id:number) => state.domain.ProductState.product[id];
 
 export const getSingleProductsSelectorId = createSelector(
   getSingleProductId,

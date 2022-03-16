@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
+import { productRootreducer } from "./productlist/reducers/rootReducer";
 import todoReducer from './todo/reducer'
-import productReducer from './productlist/reducers/reducer'
+
 const rootReducer=combineReducers({
     todo:todoReducer,
-    product:productReducer
+    app:productRootreducer,
+    domain:productRootreducer
 })
 
 export type AppState=ReturnType<typeof rootReducer>
